@@ -1,0 +1,56 @@
+<div class="task-notification-popup-toolbar" mat-dialog-title>
+    Task Information
+    <button mat-icon-button mat-dialog-close>
+        <mat-icon>clear</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="mat-typography">
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" value="{{taskData.fields.Name}}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="message-text" class="col-form-label">Descriptor:</label>
+            <textarea class="form-control" rows="5" value="{{taskData.fields.Descriptor}}" disabled></textarea>
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Category:</label>
+            <input type="text" class="form-control" value="{{taskData.fields.Category[0]}}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Client Name:</label>
+            <input type="text" class="form-control" value="{{taskData.fields['Client Name']}}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Due date:</label>
+            <input type="text" class="form-control" value="{{taskData.fields['Due Date']}}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Owner:</label>
+            <input type="text" class="form-control"
+                value="{{taskData.fields['Owner [very OLD]'] && taskData.fields['Owner [very OLD]'][0].email}}"
+                disabled />
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Project Status:</label>
+            <input type="text" class="form-control" value="{{taskData.fields['Project Status']}}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Sprint Name:</label>
+            <input type="text" class="form-control" value="{{taskData.fields['Sprint Name']}}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Sprint Due Date:</label>
+            <input type="text" class="form-control" value="{{taskData.fields['Sprint Due Date']}}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">State:</label>
+            <input type="text" class="form-control" value="{{taskData.fields.State}}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Status:</label>
+            <input type="text" class="form-control" value="{{taskData.fields.Status}}" disabled />
+        </div>
+    </div>
+</mat-dialog-content>

@@ -1,0 +1,20 @@
+<div class="check-process-st-login-toolbar" mat-dialog-title>
+  Please login to <b>Process.st</b>
+</div>
+<mat-dialog-content class="check-process-st-login-content">
+  <div>
+    <p>
+      Inbox depends on the <b>Process.st</b> app. To ensure a good Inbox experience,
+      please confirm you are logged-in to <b>Process.st</b>.
+    </p>
+    <p> 1. Open Process.st in a new tab by
+      <a href="https://app.process.st/login" target="_blank" (click)="checkLogin()">clicking here</a>
+    </p>
+    <p>2. Login to Process.st (or confirm you are already logged in)</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button style="background-color: #2196f3;" (click)="checkLogin()">
+    Yes, I'm already login
+  </button>
+</mat-dialog-actions>

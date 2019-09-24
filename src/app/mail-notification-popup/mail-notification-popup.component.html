@@ -1,0 +1,45 @@
+<div class="mail-notification-popup-toolbar" mat-dialog-title>
+  <mat-icon>mail_outline</mat-icon> Send mail
+  <button mat-icon-button (click)="close()">
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>
+<form [formGroup]="notificatioForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content class="mail-notification-popup-content">
+    <mat-form-field class="subject-input">
+      <input matInput type="text" name="email" placeholder="To" value="{{mailto}}"
+      formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+    </mat-form-field>
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+      <div *ngIf="f.email.errors.required"><span style="color:red;">To is required</span></div>
+      <div *ngIf="f.email.errors.email"><span style="color:red;">also add valid email address</span></div>
+    </div>
+    <mat-form-field class="subject-input">
+      <input matInput type="text" name="ccEmail" placeholder="CC" value="{{cc}}"
+      formControlName="ccEmail" [ngClass]="{ 'is-invalid': submitted && f.ccEmail.errors }" />
+    </mat-form-field>
+    <div *ngIf="submitted && f.ccEmail.errors" class="invalid-feedback">
+      <div *ngIf="f.ccEmail.errors.required"><span style="color:red;">CC Email is required</span></div>
+    </div>
+    <mat-form-field class="subject-input">
+      <input matInput type="text" name="subject" placeholder="Subject" value="{{subject}}"
+      formControlName="subject" [ngClass]="{ 'is-invalid': submitted && f.subject.errors }" />
+    </mat-form-field>
+    <div *ngIf="submitted && f.subject.errors" class="invalid-feedback">
+      <div *ngIf="f.subject.errors.required"><span style="color:red;">Subject is required</span></div>
+    </div>
+    <mat-form-field class="subject-input">
+        <textarea matInput rows="17" name="body" placeholder="Body" value="{{body}}"
+        formControlName="body" [ngClass]="{ 'is-invalid': submitted && f.body.errors }"></textarea>
+    </mat-form-field>
+    <div *ngIf="submitted && f.body.errors" class="invalid-feedback">
+      <div *ngIf="f.body.errors.required"><span style="color:red;">Mail content is
+          required</span></div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" [disabled]="loading">
+      Submit
+    </button>
+  </mat-dialog-actions>
+</form>

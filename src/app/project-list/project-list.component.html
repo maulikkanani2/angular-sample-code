@@ -1,0 +1,43 @@
+<div style="text-align: center!important;width: 100%;">
+  <mat-spinner style="margin:0 auto;" [diameter]="50" *ngIf="loader" color="" [strokeWidth]="5"></mat-spinner>
+</div>
+<mat-expansion-panel [expanded]="opened" (opened)="onOpenToggle(true)" (closed)="onOpenToggle(false)" hideToggle="false"
+  (toggle)="onOpenToggle()" *ngFor="let project of projects let i = index;">
+  <mat-expansion-panel-header>
+    <div class="project-toolbar" fxLayoutAlign="start center" fxLayout="row" (click)="openProject(project.id)">
+      <div fxFlex="50px" class="avatar-cla" [fxShow]="!opened">
+        <span class="avatar accent-1 accent-{{colorClass}}">
+          {{project.fields.Name[0]}}
+        </span>
+      </div>
+      <div fxFlex="25%" [fxShow]="!opened" class="avatar-cla">
+        {{project.fields.Name}}
+      </div>
+      <div fxFlex="40%" [fxShow]="!opened" fxFill class="message-subject" title={{subject}}>
+        {{project.fields.Descriptor}}
+      </div>
+
+      <div class="task-projects" [fxShow]="!opened" fxFlex>
+        <mat-chip-list>
+          <mat-chip title="" selected color="accent">
+            {{project.fields.Status}}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div fxFlex="10%" [fxShow]="!opened">
+        <mat-chip-list>
+          <mat-chip selected color="accent">
+            {{project.fields['Website Editor']}}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div fxFlex="10%" [fxShow]="!opened">
+        <mat-chip-list>
+          <mat-chip [class]="">
+            {{project.fields['Project Manager'] && project.fields['Project Manager'].name}}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+    </div>
+  </mat-expansion-panel-header>
+</mat-expansion-panel>

@@ -1,0 +1,67 @@
+<mat-card class="col-md-5 example-card set-card">
+  <mat-card-content>
+    <div style="text-align:center;">
+      <a class="btn-auth btn-google large" (click)="attachSignin($event)">
+        Sign in with <b>google</b>
+      </a>
+    </div>
+    <div class="col-md-12 is-login">
+      <div class="col-md-12">
+        <div class="login-or">
+          <hr class="hr-or">
+          <span class="span-or">Or</span>
+        </div>
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" class="form-control" placeholder="Enter email" formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f1.email.errors }" />
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <div *ngIf="submitted && f1.email.errors" class="invalid-feedback">
+            <div *ngIf="f1.email.errors.required"><span style="color:red;">Email is required</span></div>
+            <div *ngIf="f1.email.errors.email"><span style="color:red;">also add valid email address</span></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" placeholder="Password" formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && f1.password.errors }" />
+          <div *ngIf="submitted && f1.password.errors" class="invalid-feedback">
+            <div *ngIf="f1.password.errors.required"><span style="color:red;">Password is required</span></div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="loading">Submit</button>
+      </form>
+      <div class="col-md-12" style="margin-top: 7px;padding: 0;">
+        <a [routerLink]="" (click)="showModel('forgot')" class="float-left">Forgot password?</a>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="col-md-12 is-forgot">
+      <div class="col-md-12">
+        <div class="login-or">
+          <hr class="hr-or">
+          <span class="span-or">Or</span>
+        </div>
+      </div>
+      <form [formGroup]="forgotForm" (ngSubmit)="onForgotSubmit()">
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" class="form-control" placeholder="Enter email" formControlName="forgotEmail"
+            [ngClass]="{ 'is-invalid': submitted && f.forgotEmail.errors }" />
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <div *ngIf="submitted && f.forgotEmail.errors" class="invalid-feedback">
+            <div *ngIf="f.forgotEmail.errors.required"><span style="color:red;">Email is required</span></div>
+            <div *ngIf="f.forgotEmail.errors.email"><span style="color:red;">also add valid email address</span></div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="loading">Submit</button>
+      </form>
+      <div class="col-md-12" style="margin-top: 7px;padding: 0;">
+          <a [routerLink]="" (click)="showModel('login')" class="float-left"><mat-icon>arrow_back</mat-icon> Back to login</a>
+          <div class="clearfix"></div>
+        </div>
+    </div>
+  </mat-card-content>
+</mat-card>

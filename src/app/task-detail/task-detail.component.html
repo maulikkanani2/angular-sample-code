@@ -1,0 +1,102 @@
+<mat-card>
+  <div class="message-toolbar" fxLayoutAlign="start center" fxLayout="row">
+    <div fxFlex="30%" class="btn-col" [fxShow]="opened">
+      <button *ngIf="(task.fields && (task.fields['Status'] != 'Working on it' && task.fields.isAvailable == false))"
+        (click)="shared.doStartTracker($event,task)" mat-icon-button matTooltip="Start Tracker"
+        matTooltipPosition="above">
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+      <button *ngIf="task.fields && task.fields.isAvailable == true" (click)="shared.doStartTracker($event,task)" mat-icon-button
+        matTooltip="Add task" matTooltipPosition="above">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button (click)="doExpand($event)" [matMenuTriggerFor]="snoozeMenu" mat-icon-button matTooltip="Remind Me..."
+        matTooltipPosition="above">
+        <mat-icon>alarm</mat-icon>
+      </button>
+      <mat-menu class="snooze-menu" #snoozeMenu="matMenu" [overlapTrigger]="false" xPosition="before">
+        <h3>Snooze until...</h3>
+        <hr />
+        <button mat-menu-item (click)="onSnoozed(id, 'LT')">
+          <mat-icon>brightness_6</mat-icon>
+          Later Today
+        </button>
+        <button mat-menu-item (click)="onSnoozed(id, 'TM')">
+          <mat-icon>brightness_5</mat-icon>
+          Tomorrow
+        </button>
+        <button mat-menu-item (click)="onSnoozed(id, 'TM')">
+          <mat-icon>brightness_5</mat-icon>
+          Later This Week
+        </button>
+        <button mat-menu-item (click)="onSnoozed(id, 'NW')">
+          <mat-icon>today</mat-icon>
+          Next week
+        </button>
+      </mat-menu>
+      <a *ngIf="task.fields && task.fields['Document']" mat-icon-button matTooltip="Document 1" matTooltipPosition="above"
+        [href]="task.fields['Document']" [target]="_blank" (click)="doExpand($event)">
+        <mat-icon>filter_1</mat-icon>
+      </a>
+      <a *ngIf="task.fields && task.fields['Document 2']" mat-icon-button matTooltip="Document 2" matTooltipPosition="above"
+        [href]="task.fields['Document 2']" [target]="_blank" (click)="doExpand($event)">
+        <mat-icon>filter_2</mat-icon>
+      </a>
+      <a *ngIf="task.fields && task.fields['Project Folder URL']" mat-icon-button matTooltip="Project Folder URL"
+        matTooltipPosition="above" [href]="task.fields['Project Folder URL']" [target]="_blank"
+        (click)="doExpand($event)">
+        <mat-icon>folder</mat-icon>
+      </a>
+      <a *ngIf="task.fields && task.fields['Website URL']" mat-icon-button matTooltip="Wibsite" matTooltipPosition="above"
+        [href]=" 'http://' + task.fields['Website URL'][0]" [target]="_blank" (click)="doExpand($event)">
+        <mat-icon>web</mat-icon>
+      </a>
+      <a *ngIf="task.fields && task.fields['CMS Login URL']" mat-icon-button matTooltip="CMS Login Url" matTooltipPosition="above"
+        [href]="task.fields['CMS Login URL'][0]" [target]="_blank" (click)="doExpand($event)">
+        <mat-icon>code</mat-icon>
+      </a>
+      <a *ngIf="task.fields && task.fields['Campaign Folder Url']" mat-icon-button matTooltip="Campign Folder Url"
+        matTooltipPosition="above" [href]="task.fields['Campaign Folder Url'][0]" [target]="_blank"
+        (click)="doExpand($event)">
+        <mat-icon>folder</mat-icon>
+      </a>
+      <button [matMenuTriggerFor]="menu" mat-icon-button matTooltip="More..." matTooltipPosition="above"
+        (click)="doExpand($event)">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu style="width:100%;" class="message-more-menu" #menu="matMenu" [overlapTrigger]="false"
+        xPosition="before">
+        <button title="Request Manager's Assistance" mat-menu-item (click)="assisted.emit()">
+          <mat-icon>reply</mat-icon>
+          Request Manager's Assistance
+        </button>
+        <button title="Mark as Input Received" mat-menu-item (click)="inputted.emit()">
+          <mat-icon>reply</mat-icon>
+          Mark as Input Received
+        </button>
+        <!-- <button title="Mark as Done" mat-menu-item (click)="done.emit()">
+          <mat-icon>forward</mat-icon>
+          Mark as Done
+        </button> -->
+        <button title="Mark as Cancelled" mat-menu-item (click)="cancelled.emit()">
+          <mat-icon>print</mat-icon>
+          Mark as Cancelled
+        </button>
+      </mat-menu>
+      <!--button mat-icon-button (click)="removed.emit()" matTooltip="Delete" matTooltipPosition="above">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="removed.emit()" matTooltip="Done" matTooltipPosition="above">
+                      <mat-icon>done</mat-icon>
+                    </button-->
+    </div>
+  </div>
+  <div class="message-body" fxLayout="row">
+    <div fxFlex>
+      <div style="width: 100%; height:1000px; overflow: hidden;">
+        <iframe *ngIf="iframeUrl" [src]="iframeUrl | safe" width="100%" height="1050px"
+          style="position:relative;top: -55px;"></iframe>
+      </div>
+    </div>
+  </div>
+</mat-card>

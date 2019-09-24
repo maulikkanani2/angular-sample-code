@@ -1,0 +1,51 @@
+<mat-list>
+    <mat-accordion>
+      <div *ngFor="let t of shared.tasks; let i = index;">
+          <mat-list-item class="category-title" (click)="onToggle(i)">
+             <button mat-icon-button *ngIf="!t.isOpen">
+              <mat-icon>keyboard_arrow_down</mat-icon>
+            </button>
+            <button mat-icon-button *ngIf="t.isOpen">
+              <mat-icon>keyboard_arrow_up</mat-icon>
+            </button>
+            {{t.group}}
+          </mat-list-item>
+          <div *ngIf="t.tasks.length > 0 && t.isOpen">
+            <!-- (click)="onToggle1(true)" [className]="drawer ? 'other-class' : 'example-class'" -->
+            <!-- [body]="task.fields['Checklist'] ? task.fields['Checklist'] : task.fields['Run Checklist Link']" -->
+            <mat-list-item *ngFor="let task of t.tasks; let i = index;">
+              <app-message
+                [id]="task.id"
+                [avatar]="task.fields.Name"
+                [from]="task.fields.Name"
+                [subject]="task.fields.Descriptor ? task.fields.Descriptor : task.fields.Name"
+                [body]="task.fields['Checklist']"
+                [recieved]="adfsdgf"
+                [task]="task"
+                (removed)="onRemove(task.id)"
+                (assisted)="onTaskUpdate(task, 'A')"
+                (clientAssisted)="onTaskUpdate(task, 'CA')"
+                (inputted)="onTaskUpdate(task, 'I')"
+                (done)="onTaskUpdate(task, 'D')"
+                (cancelled)="onTaskUpdate(task, 'C')"
+                (snoozed)="onSnoozeClick($event)"
+                (reply)="onNewMessage($event)"
+                (headerclick)="onClick($event)"
+                >
+              </app-message>
+            </mat-list-item>
+          </div>
+          <!-- <div *ngIf="t.tasks.length == 0 && t.isOpen">
+            <mat-card style="padding: 16px 24px;">
+              <div fxLayoutAlign="start center"
+              fxLayout="row">
+               <div fxFlex="100%" style="text-align:center;">No Task Found</div>
+              </div>
+            </mat-card>
+          </div> -->
+      </div>
+    </mat-accordion>
+  <div style="text-align: center!important;width: 100%;">
+      <mat-spinner style="margin:0 auto;" [diameter]="50" *ngIf="loader" color="" [strokeWidth]="5"></mat-spinner>
+    </div>
+  </mat-list>

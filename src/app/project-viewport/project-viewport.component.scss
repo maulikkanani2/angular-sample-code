@@ -1,0 +1,39 @@
+$toolbar-bg: #424242;
+$toolbar-color: #FFF;
+
+.project-viewport-toolbar {
+  background: $toolbar-bg;
+  color: $toolbar-color;
+  padding: 11px 20px;
+  position: relative;
+  margin: -24px -24px 0 -24px;
+  z-index: 1;
+
+  .mat-icon {
+    vertical-align: middle;
+  }
+
+  .mat-icon-button {
+    // position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+.mat-menu-content {
+  margin-top: -23px;
+}
+
+.project-viewport-content {
+  height: 95%;
+  overflow-y: auto;
+}
+
+.mat-dialog-container {
+  padding: 24px 24px 0px 24px;
+}
+
+.mat-dialog-content {
+  max-width: 100vw;
+  max-height: 100vh
+}

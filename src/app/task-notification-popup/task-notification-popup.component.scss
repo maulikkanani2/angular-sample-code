@@ -1,0 +1,37 @@
+$toolbar-bg: #424242;
+$toolbar-color: #FFF;
+
+.task-notification-popup-toolbar {
+  background: $toolbar-bg;
+  color: $toolbar-color;
+  padding: 11px 20px;
+  position: relative;
+  margin: -24px;
+  z-index: 1;
+
+  .mat-icon {
+    vertical-align: middle;
+  }
+
+  .mat-icon-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+.task-notification-popup-content {
+  padding: 24px;
+  margin: 5px;
+  height: 450px;
+}
+
+.my-full-screen-dialog .mat-dialog-container {
+  max-width: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}

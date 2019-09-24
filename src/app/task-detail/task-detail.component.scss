@@ -1,0 +1,116 @@
+.mat-expansion-panel-body {
+  margin: 0px !important;
+  overflow: hidden !important;
+}
+.accent-info{background: #5578eb;}
+.accent-primary{background: #5867dd}
+.accent-metal{background: #d3dae6;}
+.accent-warning{background: #ffb822;}
+.accent-accent{background: #00c5dc;}
+.accent-danger{background: #fd397a;}
+.accent-brand{background: #5d78ff;}
+.accent-success{background: #1dc9b7;}
+.mat-chip.mat-chip-selected.mat-accent{background: #00c5dc;}
+.Top{background-color: #f82b60!important;}
+.High{background-color: #ff6f2c!important;}
+.Medium{background-color: #fcb400!important;}
+.Low{background-color: #2d7ff9!important;}
+app-message {
+  
+  .mat-card {
+    color: #212121;
+    padding: 0;
+  
+    .btn-col {
+      text-align: right;
+    }
+  }
+
+  .message-toolbar {
+    padding: 12px 24px;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .message-subject {
+    line-height: 40px;
+    color: #757575;
+  }
+
+  .mat-content {
+    margin: 0 -24px;
+  }
+
+  &.message-opened {
+    .message-toolbar {
+      border-bottom: solid 1px #e0e0e0;
+
+      .message-subject {
+        font-size: 110%;
+        font-weight: 100;
+        // margin-left: 39% !important;
+      }
+    }
+  }
+
+  .message-body {
+    position: relative;
+
+    .message-from {
+      font-weight: bold;
+    }
+
+    .message-body-toolbar {
+      margin-bottom: 10px;
+    }
+
+    .message-to {
+      color: #7a7a7a;
+    }
+
+    .message-more {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+}
+
+.message-more-menu {
+  width: 100%;
+}
+
+.snooze-menu {
+  width: 200px;
+
+  h3 {
+    padding: 0 15px;
+    margin: 5px 0;
+  }
+
+  button {
+    font-size: 85%;
+  }
+}
+app-message {
+  mat-card {
+    mat-expansion-panel {
+      mat-expansion-panel-header {
+        .mat-content .message-toolbar .task-projects .mat-chip.mat-chip-selected.mat-accent {
+          background: #173658;
+        }
+        .mat-chip:not(.mat-basic-chip) {
+          color: white;
+        }
+      }
+    }
+  }
+}
+.mat-menu-panel.message-more-menu{max-width: 320px;}
+
+.my-full-screen-dialog .mat-dialog-container {
+  max-width: none;
+  width: 100vw;
+  height: 100vh;
+}

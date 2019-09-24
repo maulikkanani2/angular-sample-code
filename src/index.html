@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Inbox</title>
+  <base href="/">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1024px-Angular_full_color_logo.svg.png"
+    sizes="32x32" />
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1024px-Angular_full_color_logo.svg.png"
+    sizes="192x192" />
+  <link rel="apple-touch-icon-precomposed"
+    href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1024px-Angular_full_color_logo.svg.png" />
+  <meta name="msapplication-TileImage"
+    content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1024px-Angular_full_color_logo.svg.png" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <app-root></app-root>
+  <script type="text/javascript">
+    window.navigator.registerProtocolHandler('mailto', 'https://localhost:4200/notification?q=%s', 'Inbox app');
+  </script>
+</body>
+
+</html>

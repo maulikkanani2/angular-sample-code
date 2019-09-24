@@ -1,0 +1,60 @@
+$toolbar-bg: #424242;
+$toolbar-color: #FFF;
+
+.task-viewport-toolbar {
+  background: $toolbar-bg;
+  color: $toolbar-color;
+  padding: 11px 20px;
+  position: relative;
+  margin: -24px -24px 0 -24px;
+  z-index: 1;
+
+  .mat-icon {
+    vertical-align: middle;
+  }
+
+  .mat-icon-button {
+    // position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+.mat-menu-content {
+  margin-top: -23px;
+}
+
+.task-viewport-content {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.mat-dialog-container {
+  padding: 24px 24px 0px 24px;
+}
+
+.mat-dialog-content {
+  padding: 0px;
+  max-width: 100vw;
+  max-height: calc(100vh - 62px)
+}
+
+.holds-the-iframe {
+  margin-top: -51px; 
+  height: 100vh; 
+  // background:url(../../assets/loading7_blue.gif) center center no-repeat;
+}
+
+iframe {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border: 0;
+  // top: 0px;
+}
+
+.spinner-class {
+  position:fixed;
+  top: 50%;
+  left: 50%;
+}

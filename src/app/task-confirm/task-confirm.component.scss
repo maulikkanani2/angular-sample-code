@@ -1,0 +1,25 @@
+$toolbar-bg: #424242;
+$toolbar-color: #FFF;
+
+.task-confirm-toolbar {
+  background: $toolbar-bg;
+  color: $toolbar-color;
+  padding: 11px 20px;
+  position: relative;
+  margin: -24px;
+
+  .mat-icon {
+    vertical-align: middle;
+  }
+
+  .mat-icon-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+.task-confirm-content {
+  padding: 24px;
+  margin: 5px;
+}
